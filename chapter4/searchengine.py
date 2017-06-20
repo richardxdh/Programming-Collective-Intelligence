@@ -76,6 +76,11 @@ class crawler:
     
   # Return true if this url is already indexed
   def isindexed(self,url):
+    u=self.con.execute("select rowid from urllist where url='%s'" % url).fetchone()
+    if u!=None:
+      # Check if it has actually been crawled 
+      v=self.con.execute( 'select * from wordlocation where urlid=%d' % u[0]).fetchone() 
+      if v!=None: return True
     return False
   
   # Add a link between two pages
