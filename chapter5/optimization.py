@@ -183,7 +183,7 @@ def geneticoptimize(domain,costf,popsize=50,step=1,
     
     # Add mutated and bred forms of the winners
     while len(pop)<popsize:
-      if random.random()<mutprob:
+      if random.random()<mutprod:
 
         # Mutation
         c=random.randint(0,topelite)
